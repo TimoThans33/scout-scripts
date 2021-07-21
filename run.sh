@@ -11,7 +11,7 @@ DOCKER_IMAGE_NAME=$(grep DOCKER_IMAGE_NAME $SETTINGS | cut -d '=' -f2)
 
 # run project
 gnome-terminal --command "docker run -it -v $BASE_DIR:/app -w /app --net=host $DOCKER_IMAGE_NAME python3 ./main.py -d ./src"
-
+#docker run -it -v $BASE_DIR:/app -w /app --net=host $DOCKER_IMAGE_NAME python3 ./main.py -d ./src
 # Relative path of settings file in project directory
 SETTINGS="./settings.env"
 

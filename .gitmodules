@@ -1,0 +1,4 @@
+[submodule "automated-mapping-gui"]
+	path = automated-mapping-gui
+	url = https://TimoThans33@bitbucket.org/pv_as/automated-mapping-gui.git
+	branch = develop

@@ -1,0 +1,24 @@
+peers:
+  - id: scout_logic
+    ip: 192.168.8.15
+    port: 3010
+    partition: pv
+    scope: PARTITION
+
+
+
+# Scout variables
+scout_id: scout
+
+test: 1
+sensor_spacing: 0.22
+branch_spacing: 0.88
+
+# Planner variables
+sync_after_first_branch: true
+penalty_dist_to_origin: 10
+penalty_intersection_crossing: 1000
+
+
+progress_storage_file: /home/mapping-progress/mapping_progress.json
+save_progress_on_update: true

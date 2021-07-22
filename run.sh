@@ -3,6 +3,12 @@
 # Relative path to gui settings
 SETTINGS="./gui-settings.env"
 
+# Path to config file
+if [ "$1" = "" ]; then
+    echo "pass at least one command line argument"
+    exit
+fi
+
 # directory in which this script resides
 BASE_DIR="$(cd "$(dirname "$0   ")" && pwd)/automated-mapping-gui"
 
@@ -22,4 +28,4 @@ BASE_DIR="$(cd "$(dirname "$0   ")" && pwd)/"
 DOCKER_IMAGE_NAME=$(grep DOCKER_IMAGE_NAME $BASE_DIR/$SETTINGS | cut -d '=' -f2)
 
 # run project
-gnome-terminal --command "docker run -it --net=host $DOCKER_IMAGE_NAME /usr/local/bin/primevision/arq-mapp -P 4220 -n "scout_api" -p "pv" -c "/home/scout_navigation_cfg_real.yaml""
+gnome-terminal --command "docker run -it --net=host --mount type=bind,source=$1, target=/home  $DOCKER_IMAGE_NAME /usr/local/bin/primevision/arq-mapp -P 4220 -n "scout_api" -p "pv" -c "/home/scout_navigation_cfg.yaml""
